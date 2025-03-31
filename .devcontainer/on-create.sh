@@ -9,15 +9,15 @@ git config --global pull.rebase false
 git config --global core.autocrlf input
 
 echo Update .NET workloads
-sudo dotnet workload update --from-previous-sdk
+dotnet workload update --from-previous-sdk
 
 echo Install .NET dev certs
-sudo dotnet dev-certs https --trust
+dotnet dev-certs https --trust
 
 echo Install Aspire 9 templates
-sudo dotnet new install Aspire.ProjectTemplates
+dotnet new install Aspire.ProjectTemplates
 
 echo Install Azure Bicep CLI
-sudo az bicep install
+az bicep install
 
 echo Done!
