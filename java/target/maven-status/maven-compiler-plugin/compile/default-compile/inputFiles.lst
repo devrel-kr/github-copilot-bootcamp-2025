@@ -1,0 +1,14 @@
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\dto\LikeRequest.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\dto\CreateCommentRequest.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\model\Post.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\config\OpenApiConfig.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\controller\PostController.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\dto\UpdatePostRequest.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\config\WebConfig.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\dto\CreatePostRequest.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\repository\CommentRepository.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\controller\CommentController.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\model\Comment.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\SimpleSnsApiApplication.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\dto\UpdateCommentRequest.java
+C:\dev\dr\github-copilot-bootcamp-2025\java\src\main\java\com\example\simplesnsapi\repository\PostRepository.java
