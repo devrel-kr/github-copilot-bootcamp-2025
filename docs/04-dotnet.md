@@ -1,6 +1,6 @@
 # 04: .NET 앱 개발
 
-TBD
+Use Claude 3.7 Sonnet
 
 ```markdown
 I have a react app under the javascript directory. I want to containerise it using Dockerfile. Create a Dockerfile for me. The generated Dockerfile should be located in the javascript directory
