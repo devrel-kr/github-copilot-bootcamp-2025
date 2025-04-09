@@ -20,4 +20,13 @@ dotnet new install Aspire.ProjectTemplates
 echo Install Azure Bicep CLI
 az bicep install
 
+echo Install Spring Boot CLI
+wget -P ~/ https://repo.maven.apache.org/maven2/org/springframework/boot/spring-boot-cli/3.4.4/spring-boot-cli-3.4.4-bin.zip
+unzip -o ~/spring-boot-cli-3.4.4-bin.zip -d ~/.spring
+mkdir -p ~/.spring/current
+cp -r ~/.spring/spring-3.4.4/* ~/.spring/current/
+
+echo 'export PATH="$PATH:$HOME/.spring/current/bin"' >> ~/.bashrc
+# source ~/.bashrc
+
 echo Done!
