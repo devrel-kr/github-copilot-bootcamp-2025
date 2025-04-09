@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Java backend service
+  api:
+    build:
+      context: ./java
+      dockerfile: Dockerfile
+    image: simple-sns-api
+    container_name: simple-sns-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - sns-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # .NET Blazor frontend service
+  client:
+    build:
+      context: ./dotnet/SimpleSnsClient
+      dockerfile: Dockerfile
+    image: simple-sns-client
+    container_name: simple-sns-client
+    ports:
+      - "5000:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - API_BASE_URL=http://api:8080
+    depends_on:
+      - api
+    networks:
+      - sns-network
+
+networks:
+  sns-network:
+    driver: bridge
