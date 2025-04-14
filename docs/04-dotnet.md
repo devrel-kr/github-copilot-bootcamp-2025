@@ -1,5 +1,126 @@
 # 04: .NET 앱 개발
 
+## 시나리오
+
+Contoso 아웃도어 컴파니의 마케팅 팀에서는 제품 홍보를 위한 마이크로 소셜 미디어 웹사이트를 빠르게 론칭하고 싶어 합니다.
+
+JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 있었습니다만, 마케팅 팀에서 갑자기 이를 .NET 기반의 Blazor 앱으로 바꾸고 싶다는 추가적인 요구사항을 전달했습니다! 개발팀의 .NET 개발자인 당신은 이 React 앱을 .NET 기반의 Blazor 앱으로 마이그레이션을 해야 합니다.
+
+## 사전 준비사항
+
+[README](../README.md) 문서를 참조하여 개발 환경을 준비합니다.
+
+## 개발 과정 프롬프트
+
+### 블레이저 웹 앱 프로젝트 준비
+
+1. GitHub Copilot이 현재 에이전트모드인지 확인합니다. 모델은 `Claude 3.7 Sonnet`을 선택하세요.
+
+1. 가장 먼저 Blazor 앱을 스캐폴딩합니다. 아래와 같은 프롬프트를 이용해 보세요.
+
+    ```text
+    .NET으로 Blazor 앱을 만들려고 합니다. 먼저 Blazor 관련 .NET 프로젝트 리스트를 보여주고 선택할 수 있게 해 주세요. 그리고 나서 dotnet 디렉토리 안에 선택한 Blazor 프로젝트로 애플리케이션을 생성해 주세요.
+    ```
+
+1. Blazor 프로젝트 리스트가 보이면 Blazor Web App을 사용하겠다고 프롬프트를 작성합니다.
+
+    ```text
+    Blazor Web App을 사용합니다.
+    ```
+
+### React 웹 앱 마이그레이션
+
+1. 이제 React 웹 앱을 .NET Blazor로 마이그레이션 할 차례입니다. 아래와 같은 프롬프트를 활용해 보세요.
+
+    ```text
+    현재 javascript 디렉토리에는 React 기반의 웹 애플리케이션이 있습니다. 이를 .NET Blazor 앱으로 마이그레이션할 예정입니다. 아래 순서대로 마이그레이션을 해 주세요.
+    
+    1. 먼저 React 앱의 구조를 파악합니다.
+    2. React 앱의 컴포넌트 구조를 최대한 똑같이 Blazor 앱의 컴포넌트로 마이그레이션 합니다.
+    3. 마이그레이션 과정에서 필요한 JavaScript 요소는 Blazor의 기능을 최대한 활용하되, 그렇지 않은 경우 JSInterop 기능을 활용해서 마이그레이션 합니다.
+    4. 마이그레이션 과정에서 필요한 CSS 요소는 변경사항을 최소화하여 마이그레이션 합니다.
+    ```
+
+1. 마이그레이션이 끝났으면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+
+    ```text
+    Blazor 애플리케이션을 실행시켜 애플리케이션에 작동하는지 확인해 주세요.
+    ```
+
+### Java 앱 Containerization
+
+1. 아래와 같은 프롬프트를 활용해서 Java 앱을 컨테이너 이미지로 생성합니다.
+
+    ```text
+    현재 java 디렉토리에는 Spring Boot 애플리케이션이 있습니다. 이 애플리케이션을 Dockerfile를 활용해서 컨테이너 이미지를 만들어 주세요. Dockerfile은 리포지토리의 Root 디렉토리에 "Dockerfile.java"로 만들어져야 합니다.
+
+    - 컨테이너의 Target Port 값은 8080이 되어야 합니다.
+    - 컨테이너의 Host Port 값은 5050이 되어야 합니다.
+    ```
+
+1. Dockerfile 생성이 끝났으면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+
+    ```text
+    "Dockerfile.java"를 이용해 컨테이너 이미지를 생성하고 실제로 애플리케이션이 작동하는지 확인해 주세요.
+    ```
+
+### Blazor 앱 Containerization
+
+1. 아래와 같은 프롬프트를 활용해서 .NET 앱을 컨테이너 이미지로 생성합니다.
+
+    ```text
+    현재 dotnet 디렉토리에는 Blazor 애플리케이션이 있습니다. 이 애플리케이션을 Dockerfile를 활용해서 컨테이너 이미지를 만들어 주세요. Dockerfile은 리포지토리의 Root 디렉토리에 "Dockerfile.dotnet"으로 만들어져야 합니다.
+
+    - 컨테이너의 Target Port 값은 8080이 되어야 합니다.
+    - 컨테이너의 Host Port 값은 3000이 되어야 합니다.
+    ```
+
+1. Dockerfile 생성이 끝났으면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+
+    ```text
+    "Dockerfile.dotnet"을 이용해 컨테이너 이미지를 생성하고 실제로 애플리케이션이 작동하는지 확인해 주세요.
+    ```
+
+### Container 오케스트레이션
+
+1. 아래와 같은 프롬프트를 활용해서 앞서 생성한 Dockerfile 두 개를 가지고 컨테이너 오케스트레이션을 위한 Docker Compose 파일을 생성합니다.
+
+    ```text
+    현재 리포지토리의 Root 디렉토리에 두 개의 Dockerfile이 있습니다. 하나는 "Dockerfile.java", 다른 하나는 "Dockerfile.dotnet"입니다. 이 두 컨테이너를 오케스트레이션하는 Docker Compose 파일을 생성해 주세요.
+    
+    - Docker Compose 파일은 리포지토리의 Root 디렉토리에 "docker-compose.yaml"으로 만들어져야 합니다.
+    - 네트워크 이름은 contoso 입니다.
+    - Java 앱의 컨테이너 이름은 contoso-java 입니다. Target Port는 8080이고 Host Port는 5050입니다.
+    - .NET 앱의 컨테이너 이름은 contoso-dotnet 입니다. Target Port는 8080이고 Host Port는 3000입니다.
+    ```
+
+1. 아래와 같은 형태로 프롬프트를 작성하여 애플리케이션을 실행시킵니다.
+
+    ```text
+    이제 만들어진 Docker Compose 파일을 실행시켜 웹 애플리케이션이 작동하는지 확인해 주세요.
+    ```
+
+---
+
+축하합니다! GitHub Copilot Bootcamp의 모든 실습을 끝냈습니다!
+
+<!-- 
+```markdown
+There's a React app under the javascript directory. Now, let's migrate it to Blazor app and store it to the dotnet directory. First of all, get all the list of Blazor project and tell me which one to choose. Then, based on the choice create the Blazor project under the dotnet directory.
+```
+
+```markdown
+Let's use Blazor Web App
+```
+
+```markdown
+Now, we need to migrate the existing React app from the javascript directory to this Blazor app
+```
+
+
+TBD
+
+
 Use Claude 3.7 Sonnet
 
 ```markdown
@@ -65,3 +186,4 @@ Now, we need to migrate the existing React app from the javascript directory to 
 ```markdown
 Let's create a docker compose file to orchestrate both java app and dotnet app and store it under the project root. There are dockerfile under each directory
 ```
+-->
