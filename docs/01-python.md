@@ -1,3 +1,3 @@
-# 01: Python 앱 개발발
+# 01: Python 앱 개발
 
 TBD

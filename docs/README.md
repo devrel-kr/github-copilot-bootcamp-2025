@@ -4,7 +4,7 @@
 
 | 순서                   | 링크                                   |
 |------------------------|----------------------------------------|
-| 00: 환경설정           | [00-setup.md](./00-setup.md)           |
+| 00: 개발 환경  설정    | [00-setup.md](./00-setup.md)           |
 | 01: Python 앱 개발     | [01-python.md](./01-python.md)         |
 | 02: JavaScript 앱 개발 | [02-javascript.md](./02-javascript.md) |
 | 03: Java 앱 개발       | [03-java.md](./03-java.md)             |
