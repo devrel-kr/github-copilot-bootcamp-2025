@@ -23,7 +23,7 @@
 
    ![GitHub Codespaces 시작하기](./images/image-00.png)
 
-1. 터미널에서 아래 명령어를 실행시켜 필요한 언어의 버전을 확인합니다.
+1. 터미널에서 아래 명령어를 실행하여 개발에 필요한 언어와 프레임워크 등이 올바르게 설치되었는지 확인합니다.
 
     ```bash
     # Python 버전 확인
@@ -31,7 +31,7 @@
     ```
 
     ```bash
-    # JavaScript 버전 확인
+    # Node.js 버전 확인
     node --version
     npm --version
     ```
