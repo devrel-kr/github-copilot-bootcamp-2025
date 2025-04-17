@@ -11,6 +11,9 @@
 ### 필요 조건
 - Node.js (14.x 이상)
 - Yarn
+  ```bash
+  npm install -g yarn
+  ```
 
 ### 설치 및 실행
 ```bash
