@@ -48,7 +48,9 @@
         "ms-python.autopep8",
         "ms-vscode.vscode-node-azure-pack",
         "redhat.vscode-yaml",
-        "vscjava.vscode-java-pack"
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-spring-initializr",
+        "vscjava.vscode-spring-boot-dashboard"
       ],
       "settings": {
         "chat.agent.enabled": true
