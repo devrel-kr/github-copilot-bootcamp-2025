@@ -11,7 +11,7 @@ import {
   mockUnlikePost
 } from './mockData';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'http://localhost:8000/api';
 
 // 백엔드 API 사용 여부 (false면 목업 데이터 사용)
 const USE_REAL_API = true;
