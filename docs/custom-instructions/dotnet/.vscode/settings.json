@@ -10,9 +10,6 @@
         },
         {
             "file": ".vscode/rules/csharp/coding-style.md"
-        },
-        {
-            "file": ".vscode/prompts/job-log.prompt.md"
         }
     ],
     "github.copilot.chat.commitMessageGeneration.instructions": [
