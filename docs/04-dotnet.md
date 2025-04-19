@@ -112,7 +112,7 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 
     - 컨테이너의 Host Port 값은 5050이 되어야 합니다.
     - 필요한 경우 호스트의 경로를 볼륨 마운트하세요.
-    - 데이터베이스의 볼륨 마운트 경로는 complete/java/demo/sns.db 입니다
+    - 데이터베이스의 볼륨 마운트 경로는 complete/java/demo/sns.db 입니다.
     ```
 
 ### Blazor 앱 Containerization
@@ -120,16 +120,31 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 1. 아래와 같은 프롬프트를 활용해서 .NET 앱을 컨테이너 이미지로 생성합니다.
 
     ```text
-    현재 dotnet 디렉토리에는 Blazor 애플리케이션이 있습니다. 이 애플리케이션을 Dockerfile를 활용해서 컨테이너 이미지를 만들어 주세요. Dockerfile은 리포지토리의 Root 디렉토리에 "Dockerfile.dotnet"으로 만들어져야 합니다.
+    현재 complete/dotnet 디렉토리에는 Blazor 애플리케이션이 있습니다. 이 애플리케이션을 Dockerfile를 활용해서 컨테이너 이미지를 만들어 주세요. Dockerfile은 리포지토리의 Root 디렉토리에 "Dockerfile.dotnet"으로 만들어져야 합니다.
 
+    - .NET 9 버전을 사용합니다.
+    - Dockerfile의 내용은 반드시 Multi-stage 빌드를 활용해야 합니다.
     - 컨테이너의 Target Port 값은 8080이 되어야 합니다.
+    ```
+
+1. Dockerfile 생성이 끝났으면 아래와 같은 프롬프트를 활용해서 컨테이너 이미지 빌드를 해 봅니다.
+
+    ```text
+    방금 생성한 "Dockerfile.dotnet"을 이용해 컨테이너 이미지를 생성해 주세요.
+    ```
+
+1. 컨테이너 이미지를 성공적으로 생성했다면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+
+    ```text
+    방금 생성한 컨테이너 이미지를 이용해 컨테이너를 실행시켜 실제로 애플리케이션이 작동하는지 확인해 주세요. 아래 조건을 따라야 합니다.
+
     - 컨테이너의 Host Port 값은 3000이 되어야 합니다.
     ```
 
-1. Dockerfile 생성이 끝났으면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+1. 실제로 앱을 실행시켜보면 앱이 제대로 동작하지 않는 것을 확인합니다. 이는 프론트엔드 컨테이너와 백엔드 컨테이너간 커뮤니케이션을 하지 못하기 때문인데요, 이를 위해서는 컨테이너 오케스트레이션이 필요합니다. 다음 단계로 진행하기 앞서 기존 동작중인 컨테이너를 삭제합니다.
 
     ```text
-    "Dockerfile.dotnet"을 이용해 컨테이너 이미지를 생성하고 실제로 애플리케이션이 작동하는지 확인해 주세요.
+    현재 만들어진 모든 컨테이너를 작동여부와 상관없이 삭제해 주세요.
     ```
 
 ### Container 오케스트레이션
@@ -138,10 +153,11 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 
     ```text
     현재 리포지토리의 Root 디렉토리에 두 개의 Dockerfile이 있습니다. 하나는 "Dockerfile.java", 다른 하나는 "Dockerfile.dotnet"입니다. 이 두 컨테이너를 오케스트레이션하는 Docker Compose 파일을 생성해 주세요.
-    
+
     - Docker Compose 파일은 리포지토리의 Root 디렉토리에 "docker-compose.yaml"으로 만들어져야 합니다.
     - 네트워크 이름은 contoso 입니다.
     - Java 앱의 컨테이너 이름은 contoso-java 입니다. Target Port는 8080이고 Host Port는 5050입니다.
+    - Java 앱에서 이용하는 데이터베이스의 볼륨 마운트 경로는 complete/java/demo/sns.db 입니다.
     - .NET 앱의 컨테이너 이름은 contoso-dotnet 입니다. Target Port는 8080이고 Host Port는 3000입니다.
     ```
 

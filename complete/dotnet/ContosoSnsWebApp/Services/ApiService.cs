@@ -1,19 +1,29 @@
-
 using System.Net.Http.Json;
 using ContosoSnsWebApp.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace ContosoSnsWebApp.Services;
 
-public sealed class ApiService(HttpClient httpClient)
+public sealed class ApiService
 {
-    // TODO: Make this configurable
-    private const string ApiBaseUrl = "http://localhost:8080/api"; // Assuming Java backend runs on 5050 as per later steps
+    private readonly HttpClient _httpClient;
+    private readonly string _apiBaseUrl;
+
+    public ApiService(HttpClient httpClient, IConfiguration configuration)
+    {
+        ArgumentNullException.ThrowIfNull(httpClient);
+        ArgumentNullException.ThrowIfNull(configuration);
+        
+        _httpClient = httpClient;
+        // Use the environment variable with fallback to a local default
+        _apiBaseUrl = configuration["ApiBaseUrl"]?.TrimEnd('/') + "/api" ?? "http://localhost:8080/api";
+    }
 
     public async Task<List<Post>?> GetPostsAsync(CancellationToken cancellationToken = default)
     {
         try
         {
-            return await httpClient.GetFromJsonAsync<List<Post>>($"{ApiBaseUrl}/posts", cancellationToken);
+            return await _httpClient.GetFromJsonAsync<List<Post>>($"{_apiBaseUrl}/posts", cancellationToken);
         }
         catch (HttpRequestException ex)
         {
@@ -27,7 +37,7 @@ public sealed class ApiService(HttpClient httpClient)
     {
         try
         {
-            return await httpClient.GetFromJsonAsync<Post>($"{ApiBaseUrl}/posts/{postId}", cancellationToken);
+            return await _httpClient.GetFromJsonAsync<Post>($"{_apiBaseUrl}/posts/{postId}", cancellationToken);
         }
         catch (HttpRequestException ex)
         {
@@ -40,7 +50,7 @@ public sealed class ApiService(HttpClient httpClient)
     {
         try
         {
-            var response = await httpClient.PostAsJsonAsync($"{ApiBaseUrl}/posts", postData, cancellationToken);
+            var response = await _httpClient.PostAsJsonAsync($"{_apiBaseUrl}/posts", postData, cancellationToken);
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<Post>(cancellationToken: cancellationToken);
         }
@@ -55,7 +65,7 @@ public sealed class ApiService(HttpClient httpClient)
     {
         try
         {
-            var response = await httpClient.DeleteAsync($"{ApiBaseUrl}/posts/{postId}", cancellationToken);
+            var response = await _httpClient.DeleteAsync($"{_apiBaseUrl}/posts/{postId}", cancellationToken);
             return response.IsSuccessStatusCode;
         }
         catch (HttpRequestException ex)
@@ -69,7 +79,7 @@ public sealed class ApiService(HttpClient httpClient)
     {
         try
         {
-            return await httpClient.GetFromJsonAsync<List<Comment>>($"{ApiBaseUrl}/posts/{postId}/comments", cancellationToken);
+            return await _httpClient.GetFromJsonAsync<List<Comment>>($"{_apiBaseUrl}/posts/{postId}/comments", cancellationToken);
         }
         catch (HttpRequestException ex)
         {
@@ -82,7 +92,7 @@ public sealed class ApiService(HttpClient httpClient)
     {
         try
         {
-            var response = await httpClient.PostAsJsonAsync($"{ApiBaseUrl}/posts/{postId}/comments", commentData, cancellationToken);
+            var response = await _httpClient.PostAsJsonAsync($"{_apiBaseUrl}/posts/{postId}/comments", commentData, cancellationToken);
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<Comment>(cancellationToken: cancellationToken);
         }
@@ -97,7 +107,7 @@ public sealed class ApiService(HttpClient httpClient)
     {
         try
         {
-            var response = await httpClient.PostAsJsonAsync($"{ApiBaseUrl}/posts/{postId}/likes", likeData, cancellationToken);
+            var response = await _httpClient.PostAsJsonAsync($"{_apiBaseUrl}/posts/{postId}/likes", likeData, cancellationToken);
             return response.IsSuccessStatusCode;
         }
         catch (HttpRequestException ex)
@@ -113,11 +123,11 @@ public sealed class ApiService(HttpClient httpClient)
         {
             // The React code uses DELETE, but the Java backend might expect POST with specific data or a different endpoint.
             // Assuming DELETE for now based on React code. Adjust if backend differs.
-            var request = new HttpRequestMessage(HttpMethod.Delete, $"{ApiBaseUrl}/posts/{postId}/likes")
+            var request = new HttpRequestMessage(HttpMethod.Delete, $"{_apiBaseUrl}/posts/{postId}/likes")
             {
                 Content = JsonContent.Create(unlikeData)
             };
-            var response = await httpClient.SendAsync(request, cancellationToken);
+            var response = await _httpClient.SendAsync(request, cancellationToken);
             return response.IsSuccessStatusCode;
         }
         catch (HttpRequestException ex)
