@@ -23,7 +23,7 @@
 1. 앱을 실행시킵니다.
 
     ```bash
-    dotnet run --project $REPOSITORY_ROOT/complete/dotnet/ContosoSnsWebApp
+    dotnet run --project $REPOSITORY_ROOT/complete/dotnet/ContosoSnsWebApp/ContosoSnsWebApp.csproj
     ```
 
 1. 터미널에 보이는 `http://localhost:5090` 링크를 `Ctrl` + 왼쪽 마우스 클릭(윈도우) 또는 `Cmd` + 왼쪽 마우스 클릭(맥 OS)으로 클릭하여 웹 브라우저로 접속합니다.

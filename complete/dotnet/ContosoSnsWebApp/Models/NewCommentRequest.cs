@@ -1,4 +1,3 @@
-// filepath: /workspaces/github-copilot-bootcamp-2025/dotnet/ContosoSnsWebApp/Models/NewCommentRequest.cs
 namespace ContosoSnsWebApp.Models;
 
 // Changed from record to class with mutable properties for Blazor binding

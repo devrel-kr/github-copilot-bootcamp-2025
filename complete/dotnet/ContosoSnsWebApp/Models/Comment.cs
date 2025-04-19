@@ -1,5 +1,4 @@
 
-// filepath: /workspaces/github-copilot-bootcamp-2025/dotnet/ContosoSnsWebApp/Models/Comment.cs
 using System.Text.Json.Serialization;
 
 namespace ContosoSnsWebApp.Models;

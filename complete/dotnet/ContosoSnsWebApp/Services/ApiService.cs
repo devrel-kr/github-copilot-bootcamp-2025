@@ -1,5 +1,4 @@
 
-// filepath: /workspaces/github-copilot-bootcamp-2025/dotnet/ContosoSnsWebApp/Services/ApiService.cs
 using System.Net.Http.Json;
 using ContosoSnsWebApp.Models;
 
@@ -8,7 +7,7 @@ namespace ContosoSnsWebApp.Services;
 public sealed class ApiService(HttpClient httpClient)
 {
     // TODO: Make this configurable
-    private const string ApiBaseUrl = "http://localhost:5050/api"; // Assuming Java backend runs on 5050 as per later steps
+    private const string ApiBaseUrl = "http://localhost:8080/api"; // Assuming Java backend runs on 5050 as per later steps
 
     public async Task<List<Post>?> GetPostsAsync(CancellationToken cancellationToken = default)
     {
