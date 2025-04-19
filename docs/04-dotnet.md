@@ -90,16 +90,29 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 1. 아래와 같은 프롬프트를 활용해서 Java 앱을 컨테이너 이미지로 생성합니다.
 
     ```text
-    현재 java 디렉토리에는 Spring Boot 애플리케이션이 있습니다. 이 애플리케이션을 Dockerfile를 활용해서 컨테이너 이미지를 만들어 주세요. Dockerfile은 리포지토리의 Root 디렉토리에 "Dockerfile.java"로 만들어져야 합니다.
+    현재 complete/java 디렉토리에는 Spring Boot 애플리케이션이 있습니다. 이 애플리케이션을 Dockerfile를 활용해서 컨테이너 이미지를 만들어 주세요. Dockerfile은 리포지토리의 Root 디렉토리에 "Dockerfile.java"로 만들어져야 합니다.
 
+    - Microsoft OpenJDK를 이용합니다.
+    - JDK 버전은 21입니다.
+    - Dockerfile의 내용은 반드시 Multi-stage 빌드를 활용해야 합니다.
+    - JRE는 JDK 이미지로부터 추출합니다.
     - 컨테이너의 Target Port 값은 8080이 되어야 합니다.
-    - 컨테이너의 Host Port 값은 5050이 되어야 합니다.
     ```
 
-1. Dockerfile 생성이 끝났으면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+1. Dockerfile 생성이 끝났으면 아래와 같은 프롬프트를 활용해서 컨테이너 이미지 빌드를 해 봅니다.
 
     ```text
-    "Dockerfile.java"를 이용해 컨테이너 이미지를 생성하고 실제로 애플리케이션이 작동하는지 확인해 주세요.
+    방금 생성한 "Dockerfile.java"를 이용해 컨테이너 이미지를 생성해 주세요.
+    ```
+
+1. 컨테이너 이미지를 성공적으로 생성했다면 아래와 같은 프롬프트를 활용해서 애플리케이션이 제대로 작동하는지 확인합니다.
+
+    ```text
+    방금 생성한 컨테이너 이미지를 이용해 컨테이너를 실행시켜 실제로 애플리케이션이 작동하는지 확인해 주세요. 아래 조건을 따라야 합니다.
+
+    - 컨테이너의 Host Port 값은 5050이 되어야 합니다.
+    - 필요한 경우 호스트의 경로를 볼륨 마운트하세요.
+    - 데이터베이스의 볼륨 마운트 경로는 complete/java/demo/sns.db 입니다
     ```
 
 ### Blazor 앱 Containerization
