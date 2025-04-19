@@ -4,8 +4,8 @@ FROM mcr.microsoft.com/openjdk/jdk:21-ubuntu AS build
 WORKDIR /app
 
 # Copy gradle files for dependency resolution
-COPY complete/java/demo/gradle/ ./gradle/
-COPY complete/java/demo/gradlew complete/java/demo/build.gradle complete/java/demo/settings.gradle ./
+COPY java/demo/gradle/ ./gradle/
+COPY java/demo/gradlew java/demo/build.gradle java/demo/settings.gradle ./
 
 # Give executable permissions to gradlew
 RUN chmod +x ./gradlew
@@ -14,7 +14,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew dependencies --no-daemon
 
 # Copy source code
-COPY complete/java/demo/src ./src
+COPY java/demo/src ./src
 
 # Build the application
 RUN ./gradlew bootJar --no-daemon

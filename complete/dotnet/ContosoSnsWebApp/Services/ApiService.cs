@@ -16,7 +16,7 @@ public sealed class ApiService
         
         _httpClient = httpClient;
         // Use the environment variable with fallback to a local default
-        _apiBaseUrl = configuration["ApiBaseUrl"]?.TrimEnd('/') + "/api" ?? "http://localhost:8080/api";
+        _apiBaseUrl = $"{(configuration["ApiBaseUrl"] ?? "http://localhost:8080").TrimEnd('/')}/api";
     }
 
     public async Task<List<Post>?> GetPostsAsync(CancellationToken cancellationToken = default)

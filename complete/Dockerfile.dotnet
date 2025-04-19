@@ -3,11 +3,11 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
 
 # Copy the project files
-COPY ["complete/dotnet/ContosoSnsWebApp/ContosoSnsWebApp.csproj", "ContosoSnsWebApp/"]
+COPY ["dotnet/ContosoSnsWebApp/ContosoSnsWebApp.csproj", "ContosoSnsWebApp/"]
 RUN dotnet restore "ContosoSnsWebApp/ContosoSnsWebApp.csproj"
 
 # Copy the rest of the application code
-COPY ["complete/dotnet/ContosoSnsWebApp/", "ContosoSnsWebApp/"]
+COPY ["dotnet/ContosoSnsWebApp/", "ContosoSnsWebApp/"]
 
 # Build the application
 WORKDIR "/src/ContosoSnsWebApp"
