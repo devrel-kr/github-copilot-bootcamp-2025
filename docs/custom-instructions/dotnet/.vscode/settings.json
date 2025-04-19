@@ -10,11 +10,17 @@
         },
         {
             "file": ".vscode/rules/csharp/coding-style.md"
+        },
+        {
+            "file": ".vscode/prompts/job-log.prompt.md"
         }
     ],
     "github.copilot.chat.commitMessageGeneration.instructions": [
         {
             "file": ".vscode/rules/git-message.md"
+        },
+        {
+            "file": ".vscode/prompts/job-log.prompt.md"
         }
     ],
     "github.copilot.chat.reviewSelection.enabled": true,
@@ -24,11 +30,17 @@
         },
         {
             "file": ".vscode/rules/csharp/coding-style.md"
+        },
+        {
+            "file": ".vscode/prompts/job-log.prompt.md"
         }
     ],
     "github.copilot.chat.testGeneration.instructions": [
         {
             "file": ".vscode/rules/csharp/testing-xunit.md"
+        },
+        {
+            "file": ".vscode/prompts/job-log.prompt.md"
         }
     ]
 }

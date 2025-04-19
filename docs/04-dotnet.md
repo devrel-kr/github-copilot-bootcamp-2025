@@ -12,11 +12,58 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 
 ## 개발 과정 프롬프트
 
+- [커스텀 인스트럭션 복사](#커스텀-인스트럭션-복사)
 - [블레이저 웹 앱 프로젝트 준비](#블레이저-웹-앱-프로젝트-준비)
 - [React 웹 앱 마이그레이션](#react-웹-앱-마이그레이션)
 - [Java 앱 Containerization](#java-앱-containerization)
 - [Blazor 앱 Containerization](#blazor-앱-containerization)
 - [Container 오케스트레이션](#container-오케스트레이션)
+
+### 커스텀 인스트럭션 복사
+
+1. 리포지토리 루트를 확인합니다.
+
+    ```bash
+    # bash/zsh
+    REPOSITORY_ROOT=$(git rev-parse --show-toplevel)
+    ```
+
+    ```powershell
+    # PowerShell
+    $REPOSITORY_ROOT = git rev-parse --show-toplevel
+    ```
+
+1. 아래 명령어를 실행시켜 커스텀 인스트럭션을 복사합니다.
+
+    ```bash
+    # bash/zsh
+    # 기존 디렉토리 지우기
+    rm -rf $REPOSITORY_ROOT/.github && rm -rf $REPOSITORY_ROOT/.vscode
+
+    # 새로 디렉토리 만들기
+    mkdir -p $REPOSITORY_ROOT/.github
+    mkdir -p $REPOSITORY_ROOT/.vscode/rules/csharp && mkdir -p $REPOSITORY_ROOT/.vscode/prompts
+
+    # 커스텀 인스트럭션 복사하기
+    cp -r $REPOSITORY_ROOT/docs/custom-instructions/dotnet/.github/. $REPOSITORY_ROOT/.github/
+    cp -r $REPOSITORY_ROOT/docs/custom-instructions/dotnet/.vscode/. $REPOSITORY_ROOT/.vscode/
+    ```
+
+    ```powershell
+    # PowerShell
+    # 기존 디렉토리 지우기
+    Remove-Item -Path "$REPOSITORY_ROOT\.github" -Recurse -Force -ErrorAction SilentlyContinue
+    Remove-Item -Path "$REPOSITORY_ROOT\.vscode" -Recurse -Force -ErrorAction SilentlyContinue
+
+    # 새로 디렉토리 만들기
+    New-Item -Path "$REPOSITORY_ROOT\.github" -ItemType Directory -Force
+    New-Item -Path "$REPOSITORY_ROOT\.vscode\rules\csharp" -ItemType Directory -Force
+    New-Item -Path "$REPOSITORY_ROOT\.vscode\prompts" -ItemType Directory -Force
+
+    # 커스텀 인스트럭션 복사하기
+    Copy-Item -Path "$REPOSITORY_ROOT\docs\custom-instructions\dotnet\.github\*" -Destination "$REPOSITORY_ROOT\.github\" -Recurse -Force
+    Copy-Item -Path "$REPOSITORY_ROOT\docs\custom-instructions\dotnet\.vscode\*" -Destination "$REPOSITORY_ROOT\.vscode\" -Recurse -Force
+    ```
 
 ### 블레이저 웹 앱 프로젝트 준비
 
