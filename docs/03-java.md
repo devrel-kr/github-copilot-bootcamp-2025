@@ -157,8 +157,10 @@ Spring Boot 프로젝트의 다음 파일을 오픈해서 파일 주소를 변�
 변경할 내용은 다음과 같습니다.
 
 ```
-spring.datasource.url=jdbc:sqlite:/workspaces/github-copilot-bootcamp-2025/python/sns.db
+spring.datasource.url=jdbc:sqlite:sns.db
 ```
+
+> **NOTE**: 만약 Python 앱에서 쓰던 `sns.db`를 그대로 활용하고 싶다면, `python/sns.db` 파일을 `java/demo/sns.db`로 복사합니다.
 
 다시 앱을 빌드해서 데이타베이스가 제대로 참조되었는지 확인합니다.
 

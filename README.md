@@ -38,6 +38,10 @@ GitHub Codespaces를 활용할 경우, 크로미움 계열의 웹 브라우저�
 - nvm을 통한 [Node.js](https://nodejs.org/) 설치 (LTS 버전 권장)
 - [Yarn](https://yarnpkg.com/getting-started/install) 패키지 매니저 설치
 
+    ```bash
+    npm install -g yarn
+    ```
+
 ### Java
 
 - [SDKMAN](https://sdkman.io/) 설치
