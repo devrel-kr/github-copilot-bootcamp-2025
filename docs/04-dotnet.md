@@ -10,14 +10,17 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 
 [README](../README.md) 문서를 참조하여 개발 환경을 준비합니다.
 
-## 개발 과정 프롬프트
+## 순서
 
-- [커스텀 인스트럭션 복사](#커스텀-인스트럭션-복사)
-- [블레이저 웹 앱 프로젝트 준비](#블레이저-웹-앱-프로젝트-준비)
-- [React 웹 앱 마이그레이션](#react-웹-앱-마이그레이션)
-- [Java 앱 Containerization](#java-앱-containerization)
-- [Blazor 앱 Containerization](#blazor-앱-containerization)
-- [Container 오케스트레이션](#container-오케스트레이션)
+- [개발 과정 프롬프트](#개발-과정-프롬프트)
+  - [커스텀 인스트럭션 복사](#커스텀-인스트럭션-복사)
+  - [블레이저 웹 앱 프로젝트 준비](#블레이저-웹-앱-프로젝트-준비)
+  - [React 웹 앱 마이그레이션](#react-웹-앱-마이그레이션)
+  - [Java 앱 Containerization](#java-앱-containerization)
+  - [Blazor 앱 Containerization](#blazor-앱-containerization)
+  - [Container 오케스트레이션](#container-오케스트레이션)
+
+## 개발 과정 프롬프트
 
 ### 커스텀 인스트럭션 복사
 
@@ -102,7 +105,7 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
     
     1. 먼저 React 앱의 구조를 파악합니다.
     2. React 앱의 컴포넌트 구조를 최대한 똑같이 Blazor 앱의 컴포넌트로 마이그레이션 합니다.
-    3. 필요한 경우 NuGet 패키지를 추가할 수 있습니다. 단 NET 9 버전과 호환 가능해야 합니다.
+    3. 필요한 경우 NuGet 패키지를 추가할 수 있습니다. 단, NET 9 버전과 호환 가능해야 합니다.
     4. 마이그레이션 과정에서 필요한 JavaScript 요소는 Blazor의 기능을 최대한 활용하되, 그렇지 않은 경우 JSInterop 기능을 활용해서 마이그레이션 합니다.
     5. 마이그레이션 과정에서 필요한 CSS 요소는 변경사항을 최소화하여 마이그레이션 합니다.
     ```
@@ -217,87 +220,3 @@ JavaScript 개발자 프론트엔드 웹 API를 React 기반으로 개발하고 
 ---
 
 축하합니다! GitHub Copilot Bootcamp의 모든 실습을 끝냈습니다!
-
-<!-- 
-```markdown
-There's a React app under the javascript directory. Now, let's migrate it to Blazor app and store it to the dotnet directory. First of all, get all the list of Blazor project and tell me which one to choose. Then, based on the choice create the Blazor project under the dotnet directory.
-```
-
-```markdown
-Let's use Blazor Web App
-```
-
-```markdown
-Now, we need to migrate the existing React app from the javascript directory to this Blazor app
-```
-
-
-TBD
-
-
-Use Claude 3.7 Sonnet
-
-```markdown
-I have a react app under the javascript directory. I want to containerise it using Dockerfile. Create a Dockerfile for me. The generated Dockerfile should be located in the javascript directory
-```
-
-```markdown
-Build the dockerfile and run the container for me
-```
-
-```markdown
-stop the container and remove it
-```
-
-```markdown
-This time, do the same thing under the java directory for me, but only create a dockerfile, create the container image and run it
-```
-
-```markdown
-stop the container and remove it
-```
-
-```markdown
-Let's create a .NET Aspire project that does all the container orchestration. I have two Dockerfiles one in the javascript directory and the other in the java directory. With these two Dockerfles, the .NET Aspire will orchestrate both applications as containers. The javascript one looks after the frontend, and the java one takes care of the backend. Make sure that you have relevant .NET Aspire NuGet packages for both node.js and Java, and orchestrate both.
-```
-
-```markdown
-Let's create a .NET Aspire project. First of all get all the list of aspire project and tell me which one to choose. Then, based on the choice, create the .NET Aspire project under the dotnet directory
-```
-
-```markdown
-Yes, let's use the empty starter
-```
-
-```markdown
-let's slightly change the name to simply "SimpleSns"
-```
-
-```markdown
-OK. Let's add backend api to .NET Aspire. I've got a dockerfile under the java directory as a backend api.
-```
-
-```markdown
-OK. Let's add backend api to .NET Aspire. I've got a spring boot app the java directory as a backend api. Add relevant NuGet package for the orchestration
-```
-
-```markdown
-download java open-telemetry agent to the java/agents directory
-```
-
-```markdown
-There's a React app under the javascript directory. Now, let's migrate it to Blazor app and store it to the dotnet directory. First of all, get all the list of Blazor project and tell me which one to choose. Then, based on the choice create the Blazor project under the dotnet directory.
-```
-
-```markdown
-Let's use Blazor Web App
-```
-
-```markdown
-Now, we need to migrate the existing React app from the javascript directory to this Blazor app
-```
-
-```markdown
-Let's create a docker compose file to orchestrate both java app and dotnet app and store it under the project root. There are dockerfile under each directory
-```
--->

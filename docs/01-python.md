@@ -8,44 +8,55 @@ Contoso 아웃도어 컴파니의 마케팅 팀에서는 제품 홍보를 위한
 
 [README](../README.md) 문서를 참조하여 개발 환경을 준비합니다.
 
+## 순서
+
+- [개발 과정 프롬프트](#개발-과정-프롬프트)
+  - [FastAPI 앱 프로젝트 준비](#fastapi-앱-프로젝트-준비)
+  - [CRUD API 구현](#crud-api-구현)
+  - [가상환경으로 앱 실행](#가상환경으로-앱-실행)
+  - [API 확인](#api-확인)
+  - [기본 데이터베이스 테이블 생성](#기본-데이터베이스-테이블-생성)
+- [서비스 종료](#서비스-종료)
+
 ## 개발 과정 프롬프트
 
 아래는 FastAPI 앱을 개발하여 간단한 SNS 기능을 구현하는 과정입니다.
 
-* FastAPI 앱 프로젝트 준비
-* CRUD API 구현
-* 가상환경으로 앱 실행
-* API 확인
-* 기본 데이터베이스 테이블 생성
+- FastAPI 앱 프로젝트 준비
+- CRUD API 구현
+- 가상환경으로 앱 실행
+- API 확인
+- 기본 데이터베이스 테이블 생성
 
 ### FastAPI 앱 프로젝트 준비
 
 1. 가상환경 생성
 
-Python 프로젝트 디렉토리를 생성하고, 다음 명령어로 가상환경(venv)을 만듭니다:
+   Python 프로젝트 디렉토리를 생성하고, 다음 명령어로 가상환경(venv)을 만듭니다:
 
-```bash
-python -m venv .venv
-```
+    ```bash
+    python -m venv .venv
+    ```
 
-2. 가상환경 활성화 및 FastAPI 설치
+1. 가상환경 활성화 및 FastAPI 설치
 
-### Windows
+   **Windows**
 
-```bash
-.venv\Scripts\activate
-```
+    ```pwsh
+    .venv/Scripts/activate
+    ```
 
-### macOS / Linux
-```bash
-source .venv/bin/activate
-```
+   **MacOS**, **Linux** 또는 **GitHub Codespaces**
 
-```bash
-pip install fastapi uvicorn
-```
+    ```bash
+    source .venv/bin/activate
+    ```
 
-3. main.py 빈 파일 생성
+    ```bash
+    pip install fastapi uvicorn
+    ```
+
+1. main.py 빈 파일 생성
 
 ### CRUD API 구현
 
@@ -108,5 +119,3 @@ kill 12710
 ```
 
 그럼 다른 백엔드 서비스를 동일한 포트에서 실행할 수 있습니다.
-
-
